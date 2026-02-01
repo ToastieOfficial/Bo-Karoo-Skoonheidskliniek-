@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bo-Karoo Skoonheidskliniek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #f8f5f2, #efe9e4);
+    color: #3a3a3a;
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 2.6rem;
+    margin-bottom: 6px;
+  }
+
+  .bio {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  .buttons {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  a.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  a.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+
+  a.facebook { background-color: #1877F2; }
+  a.tiktok { background-color: #000000; }
+  a.whatsapp { background-color: #25D366; }
+  a.maps { background-color: #c89b6a; }
+
+  .announce {
+    background-color: #ffffff;
+    padding: 22px 24px;
+    border-radius: 16px;
+    max-width: 420px;
+    margin: 0 auto 30px;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+  }
+
+  .announce h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .announce p {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .announce .date {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  @media (max-width: 400px) {
+    h1 { font-size: 2.1rem; }
+    a.button { font-size: 1rem; }
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Bo-Karoo Skoonheidskliniek</h1>
+<div class="bio">Professional beauty treatments with care & confidence ✨</div>
+
+<div class="buttons">
+
+  <a class="button facebook" href="https://facebook.com/bokaroo.skoonheidskliniek" target="_blank">
+    Facebook
+  </a>
+
+  <a class="button tiktok" href="https://www.tiktok.com/@jolize_duvenhage?lang=en" target="_blank">
+    TikTok
+  </a>
+
+  <a class="button whatsapp" href="https://wa.me/27823922131" target="_blank">
+    Book on WhatsApp
+  </a>
+
+  <a class="button maps" href="https://www.google.com/maps?q=-29.819083702236263,24.413981919185883" target="_blank">
+    Find Us on Google Maps
+  </a>
+
+</div>
+
+<div class="announce" role="region" aria-live="polite">
+  <h2>📢 Announcements</h2>
+  <p id="announcementText"></p>
+  <div class="date" id="lastUpdated"></div>
+</div>
+
+<script>
+  const announcements = [
+    "📞 Contact +27 082 392 2131 for bookings",
+    "💬 Book your appointment easily via WhatsApp",
+    "📘 Check out our Facebook page for latest uploads",
+    "✨ Professional beauty treatments in a calm, friendly space"
+  ];
+
+  let index = 0;
+  const text = document.getElementById("announcementText");
+  const date = document.getElementById("lastUpdated");
+
+  function rotateAnnouncements() {
+    text.textContent = announcements[index];
+    date.textContent = "Last updated: " + new Date().toLocaleDateString();
+    index = (index + 1) % announcements.length;
+  }
+
+  rotateAnnouncements();
+  setInterval(rotateAnnouncements, 5000);
+</script>
+
+</body>
+</html>
